@@ -1,0 +1,14 @@
+C:\Users\Imran\Documents\GitHub\dotnet\csharpclaude\bin\Debug\net10.0\csharpclaude.exe
+C:\Users\Imran\Documents\GitHub\dotnet\csharpclaude\bin\Debug\net10.0\csharpclaude.deps.json
+C:\Users\Imran\Documents\GitHub\dotnet\csharpclaude\bin\Debug\net10.0\csharpclaude.runtimeconfig.json
+C:\Users\Imran\Documents\GitHub\dotnet\csharpclaude\bin\Debug\net10.0\csharpclaude.dll
+C:\Users\Imran\Documents\GitHub\dotnet\csharpclaude\bin\Debug\net10.0\csharpclaude.pdb
+C:\Users\Imran\Documents\GitHub\dotnet\csharpclaude\obj\Debug\net10.0\csharpclaude.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Imran\Documents\GitHub\dotnet\csharpclaude\obj\Debug\net10.0\csharpclaude.AssemblyInfoInputs.cache
+C:\Users\Imran\Documents\GitHub\dotnet\csharpclaude\obj\Debug\net10.0\csharpclaude.AssemblyInfo.cs
+C:\Users\Imran\Documents\GitHub\dotnet\csharpclaude\obj\Debug\net10.0\csharpclaude.csproj.CoreCompileInputs.cache
+C:\Users\Imran\Documents\GitHub\dotnet\csharpclaude\obj\Debug\net10.0\csharpclaude.dll
+C:\Users\Imran\Documents\GitHub\dotnet\csharpclaude\obj\Debug\net10.0\refint\csharpclaude.dll
+C:\Users\Imran\Documents\GitHub\dotnet\csharpclaude\obj\Debug\net10.0\csharpclaude.pdb
+C:\Users\Imran\Documents\GitHub\dotnet\csharpclaude\obj\Debug\net10.0\csharpclaude.genruntimeconfig.cache
+C:\Users\Imran\Documents\GitHub\dotnet\csharpclaude\obj\Debug\net10.0\ref\csharpclaude.dll
