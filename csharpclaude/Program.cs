@@ -1,1 +1,1 @@
-﻿GuessTheNumber.Play();
+﻿ArcadeScores.Play();
