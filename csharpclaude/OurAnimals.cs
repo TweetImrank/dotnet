@@ -107,7 +107,18 @@ public static class OurAnimals
             {
                 case "1":
                     // List all of our current pet information
-                    Console.WriteLine("this app feature is coming soon - please check back to see progress.");
+                    for (int i = 0; i < maxPets; i++)
+                    {
+                        // skip empty slots - an unused pet has only the "ID #: " label
+                        if (ourAnimals[i, 0] != "ID #: ")
+                        {
+                            Console.WriteLine();
+                            for (int j = 0; j < 6; j++)
+                            {
+                                Console.WriteLine(ourAnimals[i, j]);
+                            }
+                        }
+                    }
                     break;
 
                 case "2":
