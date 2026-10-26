@@ -123,7 +123,48 @@ public static class OurAnimals
 
                 case "2":
                     // Add a new animal friend to the ourAnimals array
-                    Console.WriteLine("this app feature is coming soon - please check back to see progress.");
+                    string anotherPet = "y";
+                    int petCount = 0;
+
+                    // count the pets that have data assigned
+                    for (int i = 0; i < maxPets; i++)
+                    {
+                        if (ourAnimals[i, 0] != "ID #: ")
+                        {
+                            petCount += 1;
+                        }
+                    }
+
+                    if (petCount < maxPets)
+                    {
+                        Console.WriteLine($"We currently have {petCount} pets that need homes. We can manage {maxPets - petCount} more.");
+                    }
+
+                    // enter new ourAnimals array data
+                    while (anotherPet == "y" && petCount < maxPets)
+                    {
+                        // TODO: collect the new pet's data here
+
+                        // the array is zero-based, so increment the counter after adding to the array
+                        petCount += 1;
+
+                        // only offer another pet if there is room left
+                        if (petCount < maxPets)
+                        {
+                            Console.WriteLine("Do you want to enter info for another pet (y/n)");
+                            do
+                            {
+                                readResult = Console.ReadLine();
+                                // treat end of input as "n" so this loop can't spin forever
+                                anotherPet = readResult == null ? "n" : readResult.Trim().ToLower();
+                            } while (anotherPet != "y" && anotherPet != "n");
+                        }
+                    }
+
+                    if (petCount >= maxPets)
+                    {
+                        Console.WriteLine("We have reached our limit on the number of pets that we can manage.");
+                    }
                     break;
 
                 case "3":
