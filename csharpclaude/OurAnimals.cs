@@ -143,7 +143,67 @@ public static class OurAnimals
                     // enter new ourAnimals array data
                     while (anotherPet == "y" && petCount < maxPets)
                     {
-                        // TODO: collect the new pet's data here
+2                        bool validEntry = false;
+
+                        // get species (cat or dog) - required
+                        do
+                        {
+                            Console.WriteLine("\n\rEnter 'dog' or 'cat' to begin a new entry");
+                            animalSpecies = ReadInput().ToLower();
+                            validEntry = animalSpecies == "dog" || animalSpecies == "cat";
+                        } while (!validEntry);
+
+                        // build the animal ID number - for example C1, C2, D3 (for Cat 1, Cat 2, Dog 3)
+                        animalID = animalSpecies.Substring(0, 1) + (petCount + 1).ToString();
+
+                        // get the pet's age - a whole number, or ? if unknown
+                        do
+                        {
+                            Console.WriteLine("Enter the pet's age or enter ? if unknown");
+                            animalAge = ReadInput();
+                            validEntry = animalAge == "?" || int.TryParse(animalAge, out _);
+                        } while (!validEntry);
+
+                        // get a description of the pet's physical appearance - can be left blank
+                        do
+                        {
+                            Console.WriteLine("Enter a physical description of the pet (size, color, gender, weight, housebroken)");
+                            animalPhysicalDescription = ReadInput().ToLower();
+                            if (animalPhysicalDescription == "")
+                            {
+                                animalPhysicalDescription = "tbd";
+                            }
+                        } while (animalPhysicalDescription == "");
+
+                        // get a description of the pet's personality - can be left blank
+                        do
+                        {
+                            Console.WriteLine("Enter a description of the pet's personality (likes or dislikes, tricks, energy level)");
+                            animalPersonalityDescription = ReadInput().ToLower();
+                            if (animalPersonalityDescription == "")
+                            {
+                                animalPersonalityDescription = "tbd";
+                            }
+                        } while (animalPersonalityDescription == "");
+
+                        // get the pet's nickname - can be left blank
+                        do
+                        {
+                            Console.WriteLine("Enter a nickname for the pet");
+                            animalNickname = ReadInput();
+                            if (animalNickname == "")
+                            {
+                                animalNickname = "tbd";
+                            }
+                        } while (animalNickname == "");
+
+                        // store the pet information in the ourAnimals array (zero based)
+                        ourAnimals[petCount, 0] = "ID #: " + animalID;
+                        ourAnimals[petCount, 1] = "Species: " + animalSpecies;
+                        ourAnimals[petCount, 2] = "Age: " + animalAge;
+                        ourAnimals[petCount, 3] = "Nickname: " + animalNickname;
+                        ourAnimals[petCount, 4] = "Physical description: " + animalPhysicalDescription;
+                        ourAnimals[petCount, 5] = "Personality: " + animalPersonalityDescription;
 
                         // the array is zero-based, so increment the counter after adding to the array
                         petCount += 1;
@@ -213,5 +273,16 @@ public static class OurAnimals
             }
 
         } while (menuSelection != "exit");
+    }
+
+    // reads a trimmed line; ends the program if input runs out so validation loops can't spin forever
+    static string ReadInput()
+    {
+        string? readResult = Console.ReadLine();
+        if (readResult == null)
+        {
+            Environment.Exit(0);
+        }
+        return readResult.Trim();
     }
 }
