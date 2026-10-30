@@ -143,7 +143,7 @@ public static class OurAnimals
                     // enter new ourAnimals array data
                     while (anotherPet == "y" && petCount < maxPets)
                     {
-2                        bool validEntry = false;
+                        bool validEntry;
 
                         // get species (cat or dog) - required
                         do
@@ -229,7 +229,36 @@ public static class OurAnimals
 
                 case "3":
                     // Ensure animal ages and physical descriptions are complete
-                    Console.WriteLine("Challenge Project - please check back soon to see progress.");
+                    for (int i = 0; i < maxPets; i++)
+                    {
+                        // skip empty slots - an unused pet has only the "ID #: " label
+                        if (ourAnimals[i, 0] == "ID #: ")
+                        {
+                            continue;
+                        }
+
+                        string petID = ourAnimals[i, 0].Substring(6);
+
+                        // age must convert to a number
+                        animalAge = ourAnimals[i, 2].Substring(5);
+                        while (!int.TryParse(animalAge, out _))
+                        {
+                            Console.WriteLine($"Enter an age for ID #: {petID}");
+                            animalAge = ReadInput();
+                        }
+                        ourAnimals[i, 2] = "Age: " + animalAge;
+
+                        // physical description can't be empty (or the "tbd" placeholder)
+                        animalPhysicalDescription = ourAnimals[i, 4].Substring(22);
+                        while (string.IsNullOrEmpty(animalPhysicalDescription) || animalPhysicalDescription == "tbd")
+                        {
+                            Console.WriteLine($"Enter a physical description for ID #: {petID} (size, color, gender, weight, housebroken)");
+                            animalPhysicalDescription = ReadInput().ToLower();
+                        }
+                        ourAnimals[i, 4] = "Physical description: " + animalPhysicalDescription;
+                    }
+
+                    Console.WriteLine("\nAge and physical description fields are complete for all of our friends.");
                     break;
 
                 case "4":
