@@ -263,7 +263,36 @@ public static class OurAnimals
 
                 case "4":
                     // Ensure animal nicknames and personality descriptions are complete
-                    Console.WriteLine("Challenge Project - please check back soon to see progress.");
+                    for (int i = 0; i < maxPets; i++)
+                    {
+                        // skip empty slots - an unused pet has only the "ID #: " label
+                        if (ourAnimals[i, 0] == "ID #: ")
+                        {
+                            continue;
+                        }
+
+                        string petID = ourAnimals[i, 0].Substring(6);
+
+                        // nickname can't be empty (or the "tbd" placeholder)
+                        animalNickname = ourAnimals[i, 3].Substring(10);
+                        while (string.IsNullOrEmpty(animalNickname) || animalNickname == "tbd")
+                        {
+                            Console.WriteLine($"Enter a nickname for ID #: {petID}");
+                            animalNickname = ReadInput();
+                        }
+                        ourAnimals[i, 3] = "Nickname: " + animalNickname;
+
+                        // personality description can't be empty (or the "tbd" placeholder)
+                        animalPersonalityDescription = ourAnimals[i, 5].Substring(13);
+                        while (string.IsNullOrEmpty(animalPersonalityDescription) || animalPersonalityDescription == "tbd")
+                        {
+                            Console.WriteLine($"Enter a personality description for ID #: {petID} (likes or dislikes, tricks, energy level)");
+                            animalPersonalityDescription = ReadInput().ToLower();
+                        }
+                        ourAnimals[i, 5] = "Personality: " + animalPersonalityDescription;
+                    }
+
+                    Console.WriteLine("\nNickname and personality description fields are complete for all of our friends.");
                     break;
 
                 case "5":
